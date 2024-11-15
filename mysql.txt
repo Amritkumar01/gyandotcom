@@ -1,0 +1,554 @@
+mysql> use mentors_db;
+Database changed
+mysql> CREATE TABLE mentors (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     availability_day VARCHAR(20) NOT NULL,
+    ->     availability_time VARCHAR(10) NOT NULL,
+    ->     occupation VARCHAR(50) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> INSERT INTO mentors (name, availability_day, availability_time, occupation)
+    -> VALUES
+    -> ('John Doe', 'Today', '08:00 AM', 'Education'),
+    -> ('Jane Smith', 'Today', '09:00 AM', 'Business'),
+    -> ('Mike Johnson', 'Tomorrow', '10:00 AM', 'Engineer'),
+    -> ('Emily Davis', 'Today', '11:00 AM', 'Technology'),
+    -> ('Sophia Lee', 'Tomorrow', '01:00 PM', 'Healthcare'),
+    -> ('James Brown', 'Today', '03:00 PM', 'Finance'),
+    -> ('Oliver Miller', 'Tomorrow', '04:00 PM', 'Entertainment'),
+    -> ('Isabella Wilson', 'Today', '05:00 PM', 'Education'),
+    -> ('Ethan Martinez', 'Tomorrow', '06:00 PM', 'Sport'),
+    -> ('Charlotte Anderson', 'Today', '07:00 PM', 'Technology'),
+    -> ('Lucas Thompson', 'Tomorrow', '08:00 PM', 'Law'),
+    -> ('Mia Moore', 'Today', '09:00 PM', 'Manager');
+Query OK, 12 rows affected (0.02 sec)
+Records: 12  Duplicates: 0  Warnings: 0
+
+
+
+
+mysql> use mentors_db;
+Database changed
+mysql> CREATE TABLE help (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100) NOT NULL,
+    ->     availability_day VARCHAR(20) NOT NULL,
+    ->     availability_time VARCHAR(10) NOT NULL,
+    ->     email VARCHAR(100) NOT NULL
+    -> );
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> INSERT INTO help (name, availability_day, availability_time, email) VALUES
+    -> ('Alice', 'today', '10:00 AM', 'alice@example.com'),
+    -> ('Bob', 'tomorrow', '2:00 PM', 'bob@example.com'),
+    -> ('Charlie', 'today', '11:30 AM', 'charlie@example.com'),
+    -> ('Diana', 'tomorrow', '3:00 PM', 'diana@example.com'),
+    -> ('Evan', 'today', '9:00 AM', 'evan@example.com'),
+    -> ('Fiona', 'tomorrow', '1:00 PM', 'fiona@example.com'),
+    -> ('George', 'today', '4:30 PM', 'george@example.com'),
+    -> ('Hannah', 'tomorrow', '12:00 PM', 'hannah@example.com'),
+    -> ('Ian', 'today', '5:15 PM', 'ian@example.com'),
+    -> ('Jane', 'tomorrow', '10:30 AM', 'jane@example.com'),
+    -> ('Kevin', 'today', '9:15 AM', 'kevin@example.com'),
+    -> ('Laura', 'tomorrow', '3:45 PM', 'laura@example.com'),
+    -> ('Mike', 'today', '1:30 PM', 'mike@example.com'),
+    -> ('Nina', 'tomorrow', '2:15 PM', 'nina@example.com'),
+    -> ('Oscar', 'today', '11:45 AM', 'oscar@example.com'),
+    -> ('Paula', 'tomorrow', '4:00 PM', 'paula@example.com'),
+    -> ('Quincy', 'today', '9:30 AM', 'quincy@example.com'),
+    -> ('Rachel', 'tomorrow', '2:45 PM', 'rachel@example.com'),
+    -> ('Steve', 'today', '10:15 AM', 'steve@example.com'),
+    -> ('Tina', 'tomorrow', '12:30 PM', 'tina@example.com');
+Query OK, 20 rows affected (0.04 sec)
+Records: 20  Duplicates: 0  Warnings: 0
+
+mysql> select * from help;
++----+---------+------------------+-------------------+---------------------+
+| id | name    | availability_day | availability_time | email               |
++----+---------+------------------+-------------------+---------------------+
+|  1 | Alice   | today            | 10:00 AM          | alice@example.com   |
+|  2 | Bob     | tomorrow         | 2:00 PM           | bob@example.com     |
+|  3 | Charlie | today            | 11:30 AM          | charlie@example.com |
+|  4 | Diana   | tomorrow         | 3:00 PM           | diana@example.com   |
+|  5 | Evan    | today            | 9:00 AM           | evan@example.com    |
+|  6 | Fiona   | tomorrow         | 1:00 PM           | fiona@example.com   |
+|  7 | George  | today            | 4:30 PM           | george@example.com  |
+|  8 | Hannah  | tomorrow         | 12:00 PM          | hannah@example.com  |
+|  9 | Ian     | today            | 5:15 PM           | ian@example.com     |
+| 10 | Jane    | tomorrow         | 10:30 AM          | jane@example.com    |
+| 11 | Kevin   | today            | 9:15 AM           | kevin@example.com   |
+| 12 | Laura   | tomorrow         | 3:45 PM           | laura@example.com   |
+| 13 | Mike    | today            | 1:30 PM           | mike@example.com    |
+| 14 | Nina    | tomorrow         | 2:15 PM           | nina@example.com    |
+| 15 | Oscar   | today            | 11:45 AM          | oscar@example.com   |
+| 16 | Paula   | tomorrow         | 4:00 PM           | paula@example.com   |
+| 17 | Quincy  | today            | 9:30 AM           | quincy@example.com  |
+| 18 | Rachel  | tomorrow         | 2:45 PM           | rachel@example.com  |
+| 19 | Steve   | today            | 10:15 AM          | steve@example.com   |
+| 20 | Tina    | tomorrow         | 12:30 PM          | tina@example.com    |
++----+---------+------------------+-------------------+---------------------+
+20 rows in set (0.00 sec)
+
+mysql> select * from mentors;
++----+--------------------+------------------+-------------------+---------------+
+| id | name               | availability_day | availability_time | occupation    |
++----+--------------------+------------------+-------------------+---------------+
+|  1 | John Doe           | Today            | 08:00 AM          | Education     |
+|  2 | Jane Smith         | Today            | 09:00 AM          | Business      |
+|  3 | Mike Johnson       | Tomorrow         | 10:00 AM          | Engineer      |
+|  4 | Emily Davis        | Today            | 11:00 AM          | Technology    |
+|  5 | Sophia Lee         | Tomorrow         | 01:00 PM          | Healthcare    |
+|  6 | James Brown        | Today            | 03:00 PM          | Finance       |
+|  7 | Oliver Miller      | Tomorrow         | 04:00 PM          | Entertainment |
+|  8 | Isabella Wilson    | Today            | 05:00 PM          | Education     |
+|  9 | Ethan Martinez     | Tomorrow         | 06:00 PM          | Sport         |
+| 10 | Charlotte Anderson | Today            | 07:00 PM          | Technology    |
+| 11 | Lucas Thompson     | Tomorrow         | 08:00 PM          | Law           |
+| 12 | Mia Moore          | Today            | 09:00 PM          | Manager       |
++----+--------------------+------------------+-------------------+---------------+
+12 rows in set (0.00 sec)
+
+mysql> TRUNCATE TABLE help;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from help;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO help (name, availability_day, availability_time, email) VALUES
+    ->     ('Alice', 'today', '08:00 AM', 'alice@example.com'),
+    ->     ('Bob', 'tomorrow', '09:00 AM', 'bob@example.com'),
+    ->     ('Charlie', 'today', '10:00 AM', 'charlie@example.com'),
+    ->     ('David', 'tomorrow', '11:00 AM', 'david@example.com'),
+    ->     ('Eve', 'today', '12:00 PM', 'eve@example.com'),
+    ->     ('Frank', 'tomorrow', '01:00 PM', 'frank@example.com'),
+    ->     ('Grace', 'today', '02:00 PM', 'grace@example.com'),
+    ->     ('Henry', 'tomorrow', '03:00 PM', 'henry@example.com'),
+    ->     ('Ivy', 'today', '04:00 PM', 'ivy@example.com'),
+    ->     ('Jack', 'tomorrow', '05:00 PM', 'jack@example.com'),
+    ->     ('Kathy', 'today', '06:00 PM', 'kathy@example.com'),
+    ->     ('Leo', 'tomorrow', '07:00 PM', 'leo@example.com'),
+    ->     ('Mona', 'today', '08:00 PM', 'mona@example.com'),
+    ->     ('Nate', 'tomorrow', '09:00 PM', 'nate@example.com'),
+    ->     ('Olivia', 'today', '08:00 AM', 'olivia@example.com'),
+    ->     ('Paul', 'tomorrow', '09:00 AM', 'paul@example.com'),
+    ->     ('Quinn', 'today', '10:00 AM', 'quinn@example.com'),
+    ->     ('Rachel', 'tomorrow', '11:00 AM', 'rachel@example.com'),
+    ->     ('Steve', 'today', '12:00 PM', 'steve@example.com'),
+    ->     ('Tina', 'tomorrow', '01:00 PM', 'tina@example.com'),
+    ->     ('Uma', 'today', '02:00 PM', 'uma@example.com'),
+    ->     ('Victor', 'tomorrow', '03:00 PM', 'victor@example.com'),
+    ->     ('Wendy', 'today', '04:00 PM', 'wendy@example.com'),
+    ->     ('Xander', 'tomorrow', '05:00 PM', 'xander@example.com'),
+    ->     ('Yara', 'today', '06:00 PM', 'yara@example.com'),
+    ->     ('Zane', 'tomorrow', '07:00 PM', 'zane@example.com'),
+    ->     ('Abby', 'today', '08:00 PM', 'abby@example.com'),
+    ->     ('Ben', 'tomorrow', '09:00 PM', 'ben@example.com'),
+    ->     ('Cara', 'today', '08:00 AM', 'cara@example.com'),
+    ->     ('Dean', 'tomorrow', '09:00 AM', 'dean@example.com');
+Query OK, 30 rows affected (0.01 sec)
+Records: 30  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE helpers (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     full_name VARCHAR(255) NOT NULL,
+    ->     email VARCHAR(255) NOT NULL,
+    ->     mobile VARCHAR(15) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     communication_type VARCHAR(50) NOT NULL,
+    ->     availability_day ENUM('today', 'tomorrow') NOT NULL,
+    ->     availability_time TIME NOT NULL,
+    ->     preferred_language VARCHAR(50) NOT NULL,
+    ->     gender VARCHAR(50) NOT NULL,
+    ->     requirements TEXT,
+    ->     why_us TEXT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select * from helpers;
+Empty set (0.01 sec)
+
+mysql> select * from helpers;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE requests (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     full_name VARCHAR(255) NOT NULL,
+    ->     email_address VARCHAR(255) NOT NULL,
+    ->     mobile_number VARCHAR(15) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     communication_type VARCHAR(50) NOT NULL,
+    ->     availability_day ENUM('today', 'tomorrow') NOT NULL,
+    ->     availability_time TIME NOT NULL,
+    ->     preferred_language VARCHAR(50) NOT NULL,
+    ->     gender ENUM('Male', 'Female', 'Others', 'Prefer not to disclose') NOT NULL,
+    ->     requirements TEXT,
+    ->     why_us TEXT NOT NULL,
+    ->     selected_helper INT,
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ->     FOREIGN KEY (selected_helper) REFERENCES help(id) ON DELETE SET NULL
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from requests;
+Empty set (0.00 sec)
+
+mysql> select * from helper;
+ERROR 1146 (42S02): Table 'mentors_db.helper' doesn't exist
+mysql> select * from helpers;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE helping (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     fullName VARCHAR(100) NOT NULL,
+    ->     emailAddress VARCHAR(100) NOT NULL,
+    ->     mobileNumber VARCHAR(15) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     communicationType VARCHAR(50) NOT NULL,
+    ->     availabilityDay VARCHAR(20) NOT NULL,
+    ->     availabilityTime TIME NOT NULL,
+    ->     preferredLanguage VARCHAR(50) NOT NULL,
+    ->     gender VARCHAR(20) NOT NULL,
+    ->     requirements VARCHAR(255),
+    ->     whyUs TEXT NOT NULL,
+    ->     selectedHelper INT,
+    ->     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> drop helping;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'helping' at line 1
+mysql> drop table helping;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> select * from helping;
+ERROR 1146 (42S02): Table 'mentors_db.helping' doesn't exist
+mysql> CREATE TABLE helping (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     fullName VARCHAR(255) NOT NULL,
+    ->     emailAddress VARCHAR(255) NOT NULL,
+    ->     mobileNumber VARCHAR(15) NOT NULL,
+    ->     dob DATE NOT NULL,
+    ->     communicationType VARCHAR(50) NOT NULL,
+    ->     availabilityDay ENUM('today', 'tomorrow') NOT NULL,
+    ->     availabilityTime TIME NOT NULL,
+    ->     preferredLanguage ENUM('English', 'Hindi') NOT NULL,
+    ->     gender ENUM('Male', 'Female', 'Others', 'Prefer not to disclose') NOT NULL,
+    ->     requirements TEXT,
+    ->     whyUs TEXT NOT NULL
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from helping;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | requirements | whyUs |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | today           | 15:00:00         | English           | Male   | abc          | xyz   |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE mentor_submit (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     full_name VARCHAR(255),
+    ->     email VARCHAR(255),
+    ->     mobile_number VARCHAR(15),
+    ->     dob DATE,
+    ->     communication_type VARCHAR(50),
+    ->     availability_day VARCHAR(20),
+    ->     availability_time TIME,
+    ->     preferred_language VARCHAR(50),
+    ->     gender VARCHAR(10),
+    ->     occupation VARCHAR(50),
+    ->     area_of_interest VARCHAR(255),
+    ->     why_us TEXT,
+    ->     hobbies TEXT,
+    ->     requirements TEXT,
+    ->     mentor_id INT, -- Assuming this references the mentor table's ID
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> selct * from helping;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selct * from helping' at line 1
+mysql> select * from helping;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | requirements | whyUs |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | today           | 15:00:00         | English           | Male   | abc          | xyz   |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Chat              | tomorrow        | 14:00:00         | English           | Male   | xyz          | abc   |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describle mentor_select;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'describle mentor_select' at line 1
+mysql> describle mentor_submit;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'describle mentor_submit' at line 1
+mysql> select * from mentor_submit;
+Empty set (0.01 sec)
+
+mysql> ALTER TABLE mentor_submit
+    -> CHANGE full_name fullName VARCHAR(255),
+    -> CHANGE email emailAddress VARCHAR(255),
+    -> CHANGE mobile_number mobileNumber VARCHAR(15),
+    -> CHANGE communication_type communicationType VARCHAR(50),
+    -> CHANGE availability_day availabilityDay VARCHAR(20),
+    -> CHANGE availability_time availabilityTime TIME,
+    -> CHANGE preferred_language preferredLanguage VARCHAR(50),
+    -> CHANGE area_of_interest areaOfInterest VARCHAR(255),
+    -> CHANGE why_us whyUs TEXT,
+    -> CHANGE hobbies hobbies TEXT,
+    -> CHANGE requirements requirements TEXT;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from mentor_submit;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | occupation | areaOfInterest | whyUs  | hobbies | requirements | mentor_id | created_at          |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | Today           | 19:00:00         | English           | Male   | NULL       | vdfgbr         | sdfggs | shsrts  | shtr         |      NULL | 2024-10-26 04:57:01 |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> ^A^C
+mysql>
+mysql> CREATE TABLE edu (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     fullName VARCHAR(100) NOT NULL,
+    ->     emailAddress VARCHAR(100) NOT NULL,
+    ->     phoneNumber VARCHAR(15) NOT NULL,
+    ->     curredu VARCHAR(100) NOT NULL,
+    ->     stream VARCHAR(100) NOT NULL,
+    ->
+    ->     -- Common Fields
+    ->     optionSelected ENUM('notes', 'private_class', 'recorded_lecture') NOT NULL,
+    ->     specificA TEXT,       -- Topics for "notes" option
+    ->     anyreq TEXT,          -- Specific requirements
+    ->
+    ->     -- Private Class-Specific Fields
+    ->     availabilityTime VARCHAR(10),   -- Time for private class
+    ->
+    ->     -- Recorded Lecture-Specific Fields
+    ->     specificC TEXT,       -- Topics for "recorded lecture"
+    ->
+    ->     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    -> );
+
+
+
+mysql> use mentors_db;
+Database changed
+mysql> des edu;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'des edu' at line 1
+mysql> DESCRIBE table_name;
+ERROR 1146 (42S02): Table 'mentors_db.table_name' doesn't exist
+mysql> DESCRIBE help;
++-------------------+--------------+------+-----+---------+----------------+
+| Field             | Type         | Null | Key | Default | Extra          |
++-------------------+--------------+------+-----+---------+----------------+
+| id                | int          | NO   | PRI | NULL    | auto_increment |
+| name              | varchar(100) | NO   |     | NULL    |                |
+| availability_day  | varchar(20)  | NO   |     | NULL    |                |
+| availability_time | varchar(10)  | NO   |     | NULL    |                |
+| email             | varchar(100) | NO   |     | NULL    |                |
++-------------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.03 sec)
+
+mysql> DESCRIBE helping;
++-------------------+---------------------------------------------------------+------+-----+---------+----------------+
+| Field             | Type                                                    | Null | Key | Default | Extra          |
++-------------------+---------------------------------------------------------+------+-----+---------+----------------+
+| id                | int                                                     | NO   | PRI | NULL    | auto_increment |
+| fullName          | varchar(255)                                            | NO   |     | NULL    |                |
+| emailAddress      | varchar(255)                                            | NO   |     | NULL    |                |
+| mobileNumber      | varchar(15)                                             | NO   |     | NULL    |                |
+| dob               | date                                                    | NO   |     | NULL    |                |
+| communicationType | varchar(50)                                             | NO   |     | NULL    |                |
+| availabilityDay   | enum('today','tomorrow')                                | NO   |     | NULL    |                |
+| availabilityTime  | time                                                    | NO   |     | NULL    |                |
+| preferredLanguage | enum('English','Hindi')                                 | NO   |     | NULL    |                |
+| gender            | enum('Male','Female','Others','Prefer not to disclose') | NO   |     | NULL    |                |
+| requirements      | text                                                    | YES  |     | NULL    |                |
+| whyUs             | text                                                    | NO   |     | NULL    |                |
++-------------------+---------------------------------------------------------+------+-----+---------+----------------+
+12 rows in set (0.00 sec)
+
+mysql> ALTER TABLE helping ADD COLUMN helperSelect VARCHAR(255);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe helping;
++-------------------+---------------------------------------------------------+------+-----+---------+----------------+
+| Field             | Type                                                    | Null | Key | Default | Extra          |
++-------------------+---------------------------------------------------------+------+-----+---------+----------------+
+| id                | int                                                     | NO   | PRI | NULL    | auto_increment |
+| fullName          | varchar(255)                                            | NO   |     | NULL    |                |
+| emailAddress      | varchar(255)                                            | NO   |     | NULL    |                |
+| mobileNumber      | varchar(15)                                             | NO   |     | NULL    |                |
+| dob               | date                                                    | NO   |     | NULL    |                |
+| communicationType | varchar(50)                                             | NO   |     | NULL    |                |
+| availabilityDay   | enum('today','tomorrow')                                | NO   |     | NULL    |                |
+| availabilityTime  | time                                                    | NO   |     | NULL    |                |
+| preferredLanguage | enum('English','Hindi')                                 | NO   |     | NULL    |                |
+| gender            | enum('Male','Female','Others','Prefer not to disclose') | NO   |     | NULL    |                |
+| requirements      | text                                                    | YES  |     | NULL    |                |
+| whyUs             | text                                                    | NO   |     | NULL    |                |
+| helperSelect      | varchar(255)                                            | YES  |     | NULL    |                |
++-------------------+---------------------------------------------------------+------+-----+---------+----------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from helping;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | requirements | whyUs | helperSelect |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | today           | 15:00:00         | English           | Male   | abc          | xyz   | NULL         |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Chat              | tomorrow        | 14:00:00         | English           | Male   | xyz          | abc   | NULL         |
+|  3 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Video Call        | today           | 17:00:00         | Hindi             | Male   | ,kkih        | bhbiu | NULL         |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from helping;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | requirements | whyUs | helperSelect |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | today           | 15:00:00         | English           | Male   | abc          | xyz   | NULL         |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Chat              | tomorrow        | 14:00:00         | English           | Male   | xyz          | abc   | NULL         |
+|  3 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Video Call        | today           | 17:00:00         | Hindi             | Male   | ,kkih        | bhbiu | NULL         |
+|  4 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | today           | 19:00:00         | English           | Male   | abc          | abc   | 2            |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from helping;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | requirements | whyUs | helperSelect |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | today           | 15:00:00         | English           | Male   | abc          | xyz   | NULL         |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Chat              | tomorrow        | 14:00:00         | English           | Male   | xyz          | abc   | NULL         |
+|  3 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Video Call        | today           | 17:00:00         | Hindi             | Male   | ,kkih        | bhbiu | NULL         |
+|  4 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | today           | 19:00:00         | English           | Male   | abc          | abc   | 2            |
+|  5 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | today           | 19:00:00         | English           | Male   | abc          | abc   | 20           |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from help;
++----+---------+------------------+-------------------+---------------------+
+| id | name    | availability_day | availability_time | email               |
++----+---------+------------------+-------------------+---------------------+
+|  1 | Alice   | today            | 08:00 AM          | alice@example.com   |
+|  2 | Bob     | tomorrow         | 09:00 AM          | bob@example.com     |
+|  3 | Charlie | today            | 10:00 AM          | charlie@example.com |
+|  4 | David   | tomorrow         | 11:00 AM          | david@example.com   |
+|  5 | Eve     | today            | 12:00 PM          | eve@example.com     |
+|  6 | Frank   | tomorrow         | 01:00 PM          | frank@example.com   |
+|  7 | Grace   | today            | 02:00 PM          | grace@example.com   |
+|  8 | Henry   | tomorrow         | 03:00 PM          | henry@example.com   |
+|  9 | Ivy     | today            | 04:00 PM          | ivy@example.com     |
+| 10 | Jack    | tomorrow         | 05:00 PM          | jack@example.com    |
+| 11 | Kathy   | today            | 06:00 PM          | kathy@example.com   |
+| 12 | Leo     | tomorrow         | 07:00 PM          | leo@example.com     |
+| 13 | Mona    | today            | 08:00 PM          | mona@example.com    |
+| 14 | Nate    | tomorrow         | 09:00 PM          | nate@example.com    |
+| 15 | Olivia  | today            | 08:00 AM          | olivia@example.com  |
+| 16 | Paul    | tomorrow         | 09:00 AM          | paul@example.com    |
+| 17 | Quinn   | today            | 10:00 AM          | quinn@example.com   |
+| 18 | Rachel  | tomorrow         | 11:00 AM          | rachel@example.com  |
+| 19 | Steve   | today            | 12:00 PM          | steve@example.com   |
+| 20 | Tina    | tomorrow         | 01:00 PM          | tina@example.com    |
+| 21 | Uma     | today            | 02:00 PM          | uma@example.com     |
+| 22 | Victor  | tomorrow         | 03:00 PM          | victor@example.com  |
+| 23 | Wendy   | today            | 04:00 PM          | wendy@example.com   |
+| 24 | Xander  | tomorrow         | 05:00 PM          | xander@example.com  |
+| 25 | Yara    | today            | 06:00 PM          | yara@example.com    |
+| 26 | Zane    | tomorrow         | 07:00 PM          | zane@example.com    |
+| 27 | Abby    | today            | 08:00 PM          | abby@example.com    |
+| 28 | Ben     | tomorrow         | 09:00 PM          | ben@example.com     |
+| 29 | Cara    | today            | 08:00 AM          | cara@example.com    |
+| 30 | Dean    | tomorrow         | 09:00 AM          | dean@example.com    |
+| 31 | Gaurav  | today            | 10:00             | abs@gmail.com       |
++----+---------+------------------+-------------------+---------------------+
+31 rows in set (0.00 sec)
+
+mysql> describle mentor;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'describle mentor' at line 1
+mysql> describe mentor_select;
+ERROR 1146 (42S02): Table 'mentors_db.mentor_select' doesn't exist
+mysql> describe mentor_submit;
++-------------------+--------------+------+-----+-------------------+-------------------+
+| Field             | Type         | Null | Key | Default           | Extra             |
++-------------------+--------------+------+-----+-------------------+-------------------+
+| id                | int          | NO   | PRI | NULL              | auto_increment    |
+| fullName          | varchar(255) | YES  |     | NULL              |                   |
+| emailAddress      | varchar(255) | YES  |     | NULL              |                   |
+| mobileNumber      | varchar(15)  | YES  |     | NULL              |                   |
+| dob               | date         | YES  |     | NULL              |                   |
+| communicationType | varchar(50)  | YES  |     | NULL              |                   |
+| availabilityDay   | varchar(20)  | YES  |     | NULL              |                   |
+| availabilityTime  | time         | YES  |     | NULL              |                   |
+| preferredLanguage | varchar(50)  | YES  |     | NULL              |                   |
+| gender            | varchar(10)  | YES  |     | NULL              |                   |
+| occupation        | varchar(50)  | YES  |     | NULL              |                   |
+| areaOfInterest    | varchar(255) | YES  |     | NULL              |                   |
+| whyUs             | text         | YES  |     | NULL              |                   |
+| hobbies           | text         | YES  |     | NULL              |                   |
+| requirements      | text         | YES  |     | NULL              |                   |
+| mentor_id         | int          | YES  |     | NULL              |                   |
+| created_at        | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-------------------+--------------+------+-----+-------------------+-------------------+
+17 rows in set (0.00 sec)
+
+mysql> select * from mentor_submit;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | occupation | areaOfInterest | whyUs  | hobbies | requirements | mentor_id | created_at          |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | Today           | 19:00:00         | English           | Male   | NULL       | vdfgbr         | sdfggs | shsrts  | shtr         |      NULL | 2024-10-26 04:57:01 |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | Today           | 12:00:00         | Hindi             | Male   | NULL       | abc            | abc    | abc     | abc          |      NULL | 2024-11-06 01:04:33 |
+|  3 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | Today           | 12:00:00         | Hindi             | Male   | NULL       | abc            | abc    | abc     | abc          |      NULL | 2024-11-06 01:15:48 |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+
+3 rows in set (0.00 sec)
+
+mysql> ALTER TABLE mentor_submit
+    -> ADD COLUMN mentorSelect VARCHAR(255),
+    -> ADD COLUMN occupation VARCHAR(50);
+ERROR 1060 (42S21): Duplicate column name 'occupation'
+mysql> ALTER TABLE mentor_submit
+    -> ADD COLUMN mentorSelect VARCHAR(255);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from mentor_submit;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+--------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | occupation | areaOfInterest | whyUs  | hobbies | requirements | mentor_id | created_at          | mentorSelect |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+--------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | Today           | 19:00:00         | English           | Male   | NULL       | vdfgbr         | sdfggs | shsrts  | shtr         |      NULL | 2024-10-26 04:57:01 | NULL         |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | Today           | 12:00:00         | Hindi             | Male   | NULL       | abc            | abc    | abc     | abc          |      NULL | 2024-11-06 01:04:33 | NULL         |
+|  3 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | Today           | 12:00:00         | Hindi             | Male   | NULL       | abc            | abc    | abc     | abc          |      NULL | 2024-11-06 01:15:48 | NULL         |
+|  4 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | Today           | 19:00:00         | NULL              | NULL   | Technology | sd             | sd     | sd      | sd           |      NULL | 2024-11-06 01:31:20 | 10           |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+------------+----------------+--------+---------+--------------+-----------+---------------------+--------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE mentor_submit
+    -> ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+ERROR 1060 (42S21): Duplicate column name 'created_at'
+mysql> ALTER TABLE helping ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from helping;
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+---------------------+
+| id | fullName    | emailAddress              | mobileNumber | dob        | communicationType | availabilityDay | availabilityTime | preferredLanguage | gender | requirements | whyUs | helperSelect | created_at          |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+---------------------+
+|  1 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Voice Call        | today           | 15:00:00         | English           | Male   | abc          | xyz   | NULL         | 2024-11-06 01:33:20 |
+|  2 | Amrit Kumar | amritkumar25014@gmail.com | 9643460884   | 2004-01-25 | Chat              | tomorrow        | 14:00:00         | English           | Male   | xyz          | abc   | NULL         | 2024-11-06 01:33:20 |
+|  3 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Video Call        | today           | 17:00:00         | Hindi             | Male   | ,kkih        | bhbiu | NULL         | 2024-11-06 01:33:20 |
+|  4 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | today           | 19:00:00         | English           | Male   | abc          | abc   | 2            | 2024-11-06 01:33:20 |
+|  5 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | today           | 19:00:00         | English           | Male   | abc          | abc   | 20           | 2024-11-06 01:33:20 |
+|  6 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Voice Call        | today           | 19:00:00         | English           | Male   | abc          | abc   | 20           | 2024-11-06 01:33:20 |
+|  7 | Amrit Kumar | amritkumar25014@gmail.com | 09643460884  | 2004-01-25 | Video Call        | today           | 21:00:00         | Hindi             | Male   | abcc         | abcc  | 18           | 2024-11-06 01:33:54 |
++----+-------------+---------------------------+--------------+------------+-------------------+-----------------+------------------+-------------------+--------+--------------+-------+--------------+---------------------+
+7 rows in set (0.00 sec)
+
+mysql>
+
+rzp_test_fTuPeTvWl0R4Lm
+
+4iFcSvoBetvDCGhMXbixtBKy
